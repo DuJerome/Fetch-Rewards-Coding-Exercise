@@ -18,16 +18,29 @@ import com.dushanesmith.fetchrewardscodingexercise.ui.theme.util.dimens.emptyLis
 import com.dushanesmith.fetchrewardscodingexercise.ui.theme.util.dimens.mediumPadding1
 
 @Composable
-fun EmptyScreen(modifier: Modifier = Modifier.fillMaxSize()) {
-    Column(verticalArrangement = Arrangement.Center, horizontalAlignment = Alignment.CenterHorizontally) {
-        Icon(modifier = Modifier.size(emptyListIconSize), painter = painterResource(R.drawable.ic_list), contentDescription = "Empty List Icon")
-        Text(text = "No Items to View", modifier = Modifier.padding(mediumPadding1).align(Alignment.CenterHorizontally))
+fun EmptyScreen() {
+    Column(
+        modifier = Modifier.fillMaxSize(),
+        verticalArrangement = Arrangement.Center,
+        horizontalAlignment = Alignment.CenterHorizontally
+    ) {
+        Icon(
+            modifier = Modifier.size(emptyListIconSize),
+            painter = painterResource(R.drawable.ic_list),
+            contentDescription = "Empty List Icon"
+        )
+        Text(
+            text = "No Items to View",
+            modifier = Modifier
+                .padding(mediumPadding1)
+                .align(Alignment.CenterHorizontally)
+        )
     }
 }
 
 @Preview(showBackground = true)
 @Composable
-fun previewEmptyScreen(){
+fun previewEmptyScreen() {
     FetchRewardsCodingExerciseTheme {
         EmptyScreen()
     }

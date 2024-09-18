@@ -12,19 +12,16 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
-import androidx.compose.ui.draw.shadow
 import androidx.compose.ui.tooling.preview.Preview
 import com.dushanesmith.fetchrewardscodingexercise.data.model.ListItem
 import com.dushanesmith.fetchrewardscodingexercise.ui.theme.SkyBlue
 import com.dushanesmith.fetchrewardscodingexercise.ui.theme.util.dimens.cornerRadius
 import com.dushanesmith.fetchrewardscodingexercise.ui.theme.util.dimens.itemViewHeight
 import com.dushanesmith.fetchrewardscodingexercise.ui.theme.util.dimens.mediumPadding1
-import com.dushanesmith.fetchrewardscodingexercise.ui.theme.util.dimens.shadowElevation
 import com.dushanesmith.fetchrewardscodingexercise.ui.theme.util.dimens.smallPadding1
 
 @Composable
 fun ItemView(listItem: ListItem, modifier: Modifier = Modifier
-    .shadow(shadowElevation)
 ) {
     Row(
         modifier = Modifier
