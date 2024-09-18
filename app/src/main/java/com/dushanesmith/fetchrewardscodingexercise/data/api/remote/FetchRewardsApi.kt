@@ -6,5 +6,5 @@ import retrofit2.http.GET
 interface FetchRewardsApi {
 
     @GET("hiring.json")
-    fun getItems(): Items
+    suspend fun getItems(): Items
 }
