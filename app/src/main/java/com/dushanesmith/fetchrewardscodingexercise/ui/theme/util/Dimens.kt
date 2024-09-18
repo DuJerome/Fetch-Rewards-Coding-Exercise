@@ -15,4 +15,5 @@ object dimens {
     val cornerRadius = 25.dp
 
     val itemViewHeight = 40.dp
+    val groupingHeight = 75.dp
 }

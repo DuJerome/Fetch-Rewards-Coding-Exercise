@@ -1,4 +1,4 @@
-package com.dushanesmith.fetchrewardscodingexercise
+package com.dushanesmith.fetchrewardscodingexercise.ui
 
 import android.os.Bundle
 import androidx.activity.ComponentActivity
@@ -40,7 +40,7 @@ class MainActivity : ComponentActivity() {
 @Composable
 fun ItemList(itemsList: LazyPagingItems<ListItem>, modifier: Modifier = Modifier.fillMaxSize()) {
     val items = remember { itemsList }
-    if (items.itemCount == 0) {
+    if (items.itemSnapshotList.isNullOrEmpty()) {
         EmptyScreen()
     } else {
         LazyColumn(
@@ -49,10 +49,9 @@ fun ItemList(itemsList: LazyPagingItems<ListItem>, modifier: Modifier = Modifier
                 .statusBarsPadding(),
             verticalArrangement = Arrangement.spacedBy(smallPadding2)
         ) {
-            items(items.itemCount) {
-                items[it]?.let {
-                    ItemView(it)
-                }
+            val groupByItemList = itemsList.itemSnapshotList.items.groupBy { it.listId }
+            items(groupByItemList.keys.size) { it->
+                    ItemGrouping(groupByItemList.get(it+1)!!)
             }
         }
     }
