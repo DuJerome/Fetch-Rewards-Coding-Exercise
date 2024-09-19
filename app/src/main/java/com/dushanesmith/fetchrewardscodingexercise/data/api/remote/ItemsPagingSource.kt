@@ -23,6 +23,11 @@ class ItemsPagingSource @Inject constructor(
     /*
     Loads the data from fetchRewardsApi and the manipulates the data
     to filter out null and blank names then sorts the list by listId then name
+
+    Note: When viewing the list you will notice Item 269 comes before 27, and
+    this is because there is one less value in 27 and also 7 is greater than 6
+    this is because we are sorting alphanumerically and so it looks wrong but is
+    right
      */
     override suspend fun load(params: LoadParams<Int>): LoadResult<Int, ListItem> {
         return try {
