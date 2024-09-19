@@ -2,6 +2,7 @@ package com.dushanesmith.fetchrewardscodingexercise.ui.theme.util
 
 import androidx.compose.ui.unit.dp
 
+//Contains dimensions used in project
 object dimens {
 
     val smallPadding1 = 6.dp

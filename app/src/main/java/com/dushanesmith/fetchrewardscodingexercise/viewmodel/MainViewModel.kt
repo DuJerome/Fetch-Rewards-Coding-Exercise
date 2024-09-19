@@ -16,6 +16,10 @@ import javax.inject.Inject
 class MainViewModel @Inject constructor(
     private val itemsRepository: ItemsRepository
 ) : ViewModel() {
+
+    /*
+    Retrieves the items list and caches the data in the viewModelScope
+     */
     fun getItemsList(): Flow<PagingData<ListItem>> =
         itemsRepository.getItemsList().cachedIn(viewModelScope)
 }

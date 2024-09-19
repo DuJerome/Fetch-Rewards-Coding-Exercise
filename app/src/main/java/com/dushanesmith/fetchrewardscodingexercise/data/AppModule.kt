@@ -1,6 +1,7 @@
 package com.dushanesmith.fetchrewardscodingexercise.data
 
 import com.dushanesmith.fetchrewardscodingexercise.data.api.remote.FetchRewardsApi
+import com.dushanesmith.fetchrewardscodingexercise.data.api.remote.ItemsPagingSource
 import com.dushanesmith.fetchrewardscodingexercise.data.repository.ItemsRepository
 import com.dushanesmith.fetchrewardscodingexercise.data.repository.ItemsRepositoryImpl
 import com.dushanesmith.fetchrewardscodingexercise.ui.theme.util.Constants.baseUrl
@@ -24,6 +25,14 @@ object AppModule {
             .addConverterFactory(GsonConverterFactory.create())
             .build()
             .create(FetchRewardsApi::class.java)
+    }
+
+    @Provides
+    @Singleton
+    fun providesItemsPagingSource(
+        fetchRewardsApi: FetchRewardsApi
+    ): ItemsPagingSource{
+        return ItemsPagingSource(fetchRewardsApi)
     }
 
     @Provides

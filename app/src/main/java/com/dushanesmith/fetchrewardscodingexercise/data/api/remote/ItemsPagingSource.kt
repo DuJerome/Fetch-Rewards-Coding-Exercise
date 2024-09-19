@@ -3,10 +3,16 @@ package com.dushanesmith.fetchrewardscodingexercise.data.api.remote
 import androidx.paging.PagingSource
 import androidx.paging.PagingState
 import com.dushanesmith.fetchrewardscodingexercise.data.model.ListItem
+import javax.inject.Inject
 
-class ItemsPagingSource(
+class ItemsPagingSource @Inject constructor(
     private val fetchRewardsApi: FetchRewardsApi
 ): PagingSource<Int, ListItem>() {
+
+    /*
+    uses the state.anchorPosition to retrieve the closest visible item
+    and returns the current page
+     */
     override fun getRefreshKey(state: PagingState<Int, ListItem>): Int? {
         return state.anchorPosition?.let { anchorPosition ->
             val anchorPage = state.closestPageToPosition(anchorPosition)
@@ -14,6 +20,10 @@ class ItemsPagingSource(
         }
     }
 
+    /*
+    Loads the data from fetchRewardsApi and the manipulates the data
+    to filter out null and blank names then sorts the list by listId then name
+     */
     override suspend fun load(params: LoadParams<Int>): LoadResult<Int, ListItem> {
         return try {
             val itemsResponse = fetchRewardsApi.getItems()

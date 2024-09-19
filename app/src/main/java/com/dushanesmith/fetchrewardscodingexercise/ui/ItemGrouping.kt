@@ -22,6 +22,9 @@ import com.dushanesmith.fetchrewardscodingexercise.ui.theme.common.ItemView
 import com.dushanesmith.fetchrewardscodingexercise.ui.theme.util.dimens.groupingHeight
 import com.dushanesmith.fetchrewardscodingexercise.ui.theme.util.dimens.mediumPadding1
 
+/*
+Takes the grouped items and displays them with a header and a lazy column of items
+ */
 @Composable
 fun ItemGrouping(itemList: List<ListItem>) {
     Column(modifier = Modifier.fillMaxSize()) {

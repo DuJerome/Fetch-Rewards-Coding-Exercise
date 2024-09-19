@@ -37,6 +37,10 @@ class MainActivity : ComponentActivity() {
     }
 }
 
+/*
+Displays an EmptyScreen if input list is empty otherwise the items are
+grouped using groupBy and then given to items listing of ItemGrouping
+ */
 @Composable
 fun ItemList(itemsList: LazyPagingItems<ListItem>, modifier: Modifier = Modifier.fillMaxSize()) {
     val items = remember { itemsList }
